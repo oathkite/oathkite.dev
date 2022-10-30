@@ -3,7 +3,7 @@ const config = {
     kit: {
         files: {
             assets: "src/assets"
-        }
+        },
     }
 };
 
