@@ -21,7 +21,6 @@
 :root {
   font-family: 'Ubuntu', Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 62.5%;
-  line-height: 1.6;
   color-scheme: light dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -35,4 +34,5 @@
 
 body {
   font-size: 1.6rem;
+  line-height: 2.4rem;
 }

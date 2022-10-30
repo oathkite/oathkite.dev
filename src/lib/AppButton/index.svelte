@@ -1,6 +1,6 @@
 <script>
     export let as = "button";
-    export let disabled = false;
+    export let disabled = null;
     export let href = null;
 </script>
 
