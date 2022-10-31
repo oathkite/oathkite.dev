@@ -4,14 +4,18 @@
     export let data;
 </script>
 
+<svelte:head>
+    <title>{data.title_en} ({data.title_ja}) | Work | oathkite.dev</title>
+</svelte:head>
+
 <AppContainer>
     <div class="image">
         {@html data.svg}
     </div>
 
     <h1 as="h1" class="title">
-        <span class="en">{ data.id }</span>
-        <span class="ja">{ data.title }</span>
+        <span class="en">{ data.title_en }</span>
+        <span class="ja">{ data.title_ja }</span>
     </h1>
 </AppContainer>
 
@@ -41,7 +45,6 @@
     .title .en {
         font-size: 2.4rem;
         line-height: 3.2rem;
-        text-transform: capitalize;
     }
 
     .title .ja {

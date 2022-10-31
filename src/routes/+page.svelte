@@ -4,6 +4,10 @@
     export let data;
 </script>
 
+<svelte:head>
+    <title>Work | oathkite.dev</title>
+</svelte:head>
+
 <AppContainer>
     <ul class="list">
         {#each data.contents as item}
@@ -13,8 +17,8 @@
                     {@html item.svg}
                 </div>
                 <h2 class="title">
-                    <p class="en">{item.id}</p>
-                    <p class="ja">{item.title}</p>
+                    <p class="en">{item.title_en}</p>
+                    <p class="ja">{item.title_ja}</p>
                 </h2>
             </a>
         </li>
@@ -48,10 +52,6 @@
         display: flex;
         flex-direction: column;
         gap: 8px;
-    }
-
-    .title .en {
-        text-transform: capitalize;
     }
 
     .title .ja {

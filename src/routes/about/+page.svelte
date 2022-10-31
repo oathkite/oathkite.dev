@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-    <title>Takehito Kita | Interface designer | oathkite.dev</title>
+    <title>Takehito Kita | UI designer | oathkite.dev</title>
 </svelte:head>
 
 <AppContainer>
