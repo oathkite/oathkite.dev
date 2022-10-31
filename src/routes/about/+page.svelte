@@ -71,21 +71,6 @@
 </AppContainer>
 
 <style>
-    .container {
-        display: grid;
-        gap: 64px;
-    }
-
-    .container > * {
-        display: grid;
-        gap: 32px;
-    }
-
-    .container > * > * {
-        display: grid;
-        gap: 16px;
-    }
-
     .list {
         list-style-type: disc;
         list-style-position: inside;
