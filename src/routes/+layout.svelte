@@ -9,6 +9,13 @@
         <AppButton as="a" href="/">
             <AppIcon name="symbol" slot="left-icon" />
         </AppButton>
+
+        <nav>
+            <AppButton as="a" href="/#profile">Profile</AppButton>
+            <AppButton as="a" href="/#philosophy">Philosophy</AppButton>
+            <AppButton as="a" href="/#skills">Skills</AppButton>
+            <AppButton as="a" href="/#social-accounts">Social accounts</AppButton>
+        </nav>
     </header>
     
     <main>
@@ -23,7 +30,7 @@
 <style>
     header {
         display: flex;
-        justify-items: flex-start;
+        justify-content: space-between;
         padding: 32px;
     }
 
@@ -35,6 +42,12 @@
     footer {
         padding: 32px;
         font-size: 1.8rem;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 16px;
     }
 
     .container {
