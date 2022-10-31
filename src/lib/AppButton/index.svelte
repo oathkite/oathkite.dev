@@ -17,7 +17,7 @@
 >
     {#if $$slots["left-icon"]}
     <span class="icon">
-        <slot name="left-icon" class="icon" />
+        <slot name="left-icon" />
     </span>
     {/if}
 
@@ -27,7 +27,7 @@
 
     {#if $$slots["right-icon"]}
     <span class="icon">
-        <slot name="right-icon" class="icon" />
+        <slot name="right-icon" />
     </span>
     {/if}
 </svelte:element>

@@ -11,10 +11,7 @@
         </AppButton>
 
         <nav>
-            <AppButton as="a" href="/#profile">Profile</AppButton>
-            <AppButton as="a" href="/#philosophy">Philosophy</AppButton>
-            <AppButton as="a" href="/#skills">Skills</AppButton>
-            <AppButton as="a" href="/#social-accounts">Social accounts</AppButton>
+            <AppButton as="a" href="/about">Who am I</AppButton>
         </nav>
     </header>
     
@@ -23,7 +20,7 @@
     </main>
     
     <footer>
-        <AppTypography>&copy;Takehito Kita</AppTypography>
+        <AppTypography>&copy;Takehito Kita 2022</AppTypography>
     </footer>
 </div>
 

@@ -1,102 +1,104 @@
 <script>
-    import AppTypography from "../lib/AppTypography/index.svelte";
+    import AppContainer from "../lib/AppContainer/index.svelte";
+
+    export let data;
 </script>
 
-<svelte:head>
-    <title>Takehito Kita | Interface designer</title>
-</svelte:head>
-
-<div class="container">
-    <section id="profile">
-        <AppTypography as="h1">Takehito Kita</AppTypography>
-
-        <div>
-            <AppTypography>I am a UI designer in Japan. I go by the name oathkite online. Designing “Kamon”<AppTypography as="sup">※1</AppTypography> is my private work.</AppTypography>
-            <AppTypography as="small">※1 The term "Kamon" refers to a crest used in Japan to indicate one's origins; that is, one's family lineage, blood line, ancestry and status from ancient times.</AppTypography>
-        </div>
-    </section>
-
-    <section id="philosophy">
-        <AppTypography as="h2">Philosophy</AppTypography>
-
-        <AppTypography>I value creating well-organized designs that are easy to engineer. The following keywords are important to me in design.</AppTypography>
-        
-        <ul class="list">
-            <li>Simplicity</li>
-            <li>Usability</li>
-            <li>Scalability</li>
-            <li>Accessibility</li>
-            <li>Availability</li>
-            <li>Reliability</li>
-        </ul>
-    </section>
-
-    <section id="skills">
-        <AppTypography as="h2">Skills</AppTypography>
-
-        <AppTypography>I stand between the business and the engineer, and focus on building simple UI designs that are scalable and maintainable.</AppTypography>
-
-        <div id="design-tools">
-            <AppTypography as="h3">Design tools</AppTypography>
-            <AppTypography>I create UI designs using Figma, which allows for easy collaboration with clients, designers, engineers, and other people in various roles. I can also use common Adobe design tools. Animation is not my forte.</AppTypography>
-        </div>
-
-        <div id="design-methodology">
-            <AppTypography as="h3">Design methodology</AppTypography>
-            <AppTypography>The design of the UI will be based primarily on Atomic Design. I am also conscious of styling in accordance with A11y. I prefer general UI design that does not deviate from browser standard specifications.</AppTypography>
-        </div>
-    </section>
-
-    <section id="social-accounts">
-        <AppTypography as="h2">Social accounts</AppTypography>
-
-        <AppTypography>To contact me, please send me a message through one of my social accounts.</AppTypography>
-
-        <ul class="list">
-            <li>
-                <a href="https://www.figma.com/@oathkite" target="_blank" rel="noreferrer">Figma</a>
-            </li>
-            <li>
-                <a href="https://github.com/oathkite" target="_blank" rel="noreferrer">GitHub</a>
-            </li>
-            <li>
-                <a href="https://twitter.com/takehitokita" target="_blank" rel="noreferrer">Twitter</a>
-            </li>
-            <li>
-                <a href="https://note.com/oathkite/" target="_blank" rel="noreferrer">note</a>
-            </li>
-        </ul>
-    </section>
-</div>
+<AppContainer>
+    <ul class="list">
+        {#each data.contents as item}
+        <li>
+            <a href="/work/{ item.id }" class="item">
+                <div class="item-image">
+                    {@html item.svg}
+                </div>
+                <h2 class="title">
+                    <p class="en">{item.id}</p>
+                    <p class="ja">{item.title}</p>
+                </h2>
+            </a>
+        </li>
+        {/each}
+    </ul>
+</AppContainer>
 
 <style>
-    .container {
-        display: grid;
-        gap: 64px;
+    @media (prefers-color-scheme: light) {
+        :root {
+            --hover: rgba(255, 255, 255, 0.16);
+            --active: rgba(0, 0, 0, 0.08);
+        }
     }
 
-    .container > * {
-        display: grid;
-        gap: 32px;
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --hover: rgba(255, 255, 255, 0.08);
+            --active: rgba(0, 0, 0, 0.08);
+        }
     }
 
-    .container > * > * {
-        display: grid;
+    .item {
+        display: flex;
+        flex-direction: column;
         gap: 16px;
     }
 
-    .list {
-        list-style-type: disc;
-        list-style-position: inside;
-        display: grid;
+    .title {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
         gap: 8px;
     }
 
-    a {
-        text-decoration: underline;
+    .title .en {
+        text-transform: capitalize;
     }
 
-    a:hover {
-        text-decoration: none;
+    .title .ja {
+        font-size: 1.2rem;
+    }
+
+    .item-image {
+        border-radius: 16px;
+    }
+
+    .item:hover .item-image {
+        background-color: var(--hover);
+    }
+
+    .item:active .item-image {
+        background-color: var(--active);
+    }
+
+    .item:focus .item-image {
+        box-shadow: inset 0px 0px 0px 3px rgba(255, 251, 80, 0.64);
+    }
+
+    .item :global(svg) :global(*) {
+        fill: var(--color-text);
+    }
+
+    .item :global(svg) {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 24px;
+    }
+
+    @media screen and (max-width: 960px) {
+        .list {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media screen and (max-width: 640px) {
+        .list {
+            grid-template-columns: 1fr;
+        }
     }
 </style>
